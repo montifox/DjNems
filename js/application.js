@@ -1,14 +1,17 @@
 'use strict';
 
-var app = angular.module( 'app' , [] );
+var app = angular.module( 'app' , ['ngRoute', 'controllers'] );
 
-app.controller( 'songs' , [ '$scope' , function( $scope ){
-	
-	$scope.songs = [
-		{ autor : 'Darude' , tytul : 'Sand storm' , url : '/darude/sandstorm', gatunek: 'trans tehno' },
-		{ autor : 'Sum-41' , tytul : 'Fake my own death' , url : '/sum41/fakemyowndeath', gatunek: 'punk' }
-	];
-
-	console.log(  );
-
+app.config([ '$routeProvider', function($routeProvider){
+    
+    $routeProvider.when('/music',{
+        controller : 'songs',
+        templateUrl : 'partials/music.html'
+    });
+    
+    $routeProvider.otherwise({
+        redirectTo: '/home'
+    });
+    
 }]);
+
