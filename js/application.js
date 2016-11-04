@@ -9,6 +9,11 @@ app.config([ '$routeProvider', function($routeProvider){
         templateUrl : 'partials/music.html'
     });
     
+        $routeProvider.when('/music/addmusic',{
+        controller : 'addmusic',
+        templateUrl : 'partials/addmusic.html'
+    });
+    
     $routeProvider.otherwise({
         redirectTo: '/home'
     });

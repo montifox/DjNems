@@ -10,6 +10,22 @@ controllers.controller( 'songs' , [ '$scope' , '$http', function( $scope, $http 
         }).error(function(){
             console.log('error jsons');                   
         });
+    
+	
+
+}]);
+
+
+
+controllers.controller( 'addmusic' , [ '$scope' , '$http', function( $scope, $http ){
+	
+        $scope.addmusic=function(){
+          
+            // ToDo connect with API
+            
+            console.log($scope.song);
+        };
+    
 	
 
 }]);
