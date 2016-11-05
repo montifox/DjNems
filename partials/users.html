@@ -4,42 +4,35 @@
           <div class="col-sm-6">
         <input type="text" class="form-control" placeholder="szukaj..." ng-model="serch"> 
           </div> <!--- END COLL xs 6 -->
-         <div class="col-sm-6 text-right">
-      <a href="#/music/addmusic" class="btn btn-success">Dodaj piosenkę</a>
-        </div> <!--- END COLL xs 6 -->
+      
       </div> <!-- end ROW -->
           <br>
       <!--- wyswietlanie produktow OSOM -->
 
 <div class="row">
     <div class="col-sm-12">
-      <div ng-controller="songs">   
+      <div ng-controller="users">   
           
           <table class="table table-hover">
     <thead>
       <tr>
+        <th>Id</th>
+        <th>Mail</th>
+        <th>Rola</th>
         <th></th>
-        <th>Autor</th>
-        <th>Tytuł</th>
-        <th>Gatunek</th>
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="songs in songs | filter: serch">
-        <td>
-          <button id="{{songs.url}}" class="btn btn-success">
-            <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
-            </button>
-        </td>
-        <td>{{songs.autor }}    </td>
-        <td>{{songs.tytul}}</td>
-        <td>{{songs.gatunek}}</td>
+      <tr ng-repeat="users in users | filter: serch">
+        <td>{{users.names}}</td>
+        <td>{{users.email}}</td>
+        <td>{{users.role}}</td>
         <td><button ng-click="delete(songs,$index)" class="btn btn-danger">
               <span class="glyphicon glyphicon-trash"></span>
             </button>
         </td>
-        <td><button class="btn btn-success">
-             <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  Dodaj
+        <td><button class="btn btn-info">
+             <span class="glyphicon glyphicon-pencil"></span> 
             </button>
         </td>
       </tr>

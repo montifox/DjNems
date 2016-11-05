@@ -2,6 +2,15 @@
 
 var controllers = angular.module( 'controllers' , ['ngRoute'] );
 
+controllers.controller( 'navigation' , [ '$scope' , '$location', function( $scope, $location ){
+	
+    
+	//Not very important 
+
+}]);
+
+
+
 controllers.controller( 'songs' , [ '$scope' , '$http', function( $scope, $http ){
 	
         $http.get('model/music_library.json').
@@ -36,5 +45,31 @@ controllers.controller( 'addmusic' , [ '$scope' , '$http', function( $scope, $ht
         };
     
 	
+
+}]);
+
+
+
+
+controllers.controller( 'users' , [ '$scope' , '$http', function( $scope, $http ){
+	
+       $http.get('model/users.json').
+        success(function(data){
+            $scope.users=data;                   
+        }).error(function(){
+            console.log('error jsons');                   
+        });
+    
+    
+        $scope.delete = function(users,$index)
+        {
+            
+            //ToDo conect with API
+            $scope.users.splice($index, 1); // $index, ile elementow 
+            
+        };
+    
+	
+
 
 }]);

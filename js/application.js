@@ -14,6 +14,11 @@ app.config([ '$routeProvider', function($routeProvider){
         templateUrl : 'partials/addmusic.html'
     });
     
+        $routeProvider.when('/users',{
+        controller : 'users',
+        templateUrl : 'partials/users.html'
+    });
+    
     $routeProvider.otherwise({
         redirectTo: '/home'
     });
