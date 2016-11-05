@@ -34,9 +34,14 @@
         <td>{{songs.autor }}    </td>
         <td>{{songs.tytul}}</td>
         <td>{{songs.gatunek}}</td>
-        <td><button class="btn btn-danger">
+        <td><button ng-click="delete(songs,$index)" class="btn btn-danger">
+               Usuń
+            </button>
+        </td>
+        <td><button class="btn btn-success">
              <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  Dodaj
-            </button></td>
+            </button>
+        </td>
       </tr>
     </tbody>
   </table>
