@@ -68,8 +68,30 @@ controllers.controller( 'users' , [ '$scope' , '$http', function( $scope, $http 
             $scope.users.splice($index, 1); // $index, ile elementow 
             
         };
-    
+}]);
+
+controllers.controller( 'orders' , [ '$scope' , '$http', function( $scope, $http ){
 	
-
-
+       $http.get('model/orders.json').
+        success(function(data){
+            $scope.orders=data;                   
+        }).error(function(){
+            console.log('error jsons');                   
+        });
+    
+    
+        $scope.delete = function(orders,$index)
+        {
+            
+            //ToDo conect with API
+            $scope.orders.splice($index, 1); // $index, ile elementow 
+            
+        };
+    
+        $scope.changeStatus = function(orders)
+        {
+            if (orders.status == 0) orders.status = 1;       
+            else orders.status = 0;
+        };
+    
 }]);
