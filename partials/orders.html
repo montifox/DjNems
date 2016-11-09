@@ -1,11 +1,11 @@
- 
-<div class="container">
+ <div class="container">
     <div class="row">
               <div class="col-sm-6">
             <input type="text" class="form-control" placeholder="szukaj..." ng-model="serch"> 
               </div> <!--- END COLL xs 6 -->
 
     </div> <!-- end ROW -->
+</div>
               <br>
           <!--- wyswietlanie produktow OSOM -->
     <div class=" container">
@@ -17,21 +17,23 @@
                 </div> <!-- end row --->
                 <div class="row">
                     <h3 style="text-align:center;">Playlista</h3>
-                        <table class="table table-hover">
-                            <thead>
-                                <th>Autor</th>
-                                <th>Tytul</th>
-                                <th>Gatunek</th>
-                                <th>Url</th>
-                            </thead>
-                                
-                            <tbody ng-repeat="songs in orders.songs">
-                                <td> {{songs.autor}}</td>
-                                <td> {{songs.tytul}}</td>
-                                <td> {{songs.gatunek}}</td>
-                                <td> {{songs.url}}</td>
-                            </tbody>
-                        </table>
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <th>Autor</th>
+                                    <th>Tytul</th>
+                                    <th>Gatunek</th>
+                                    <th>Url</th>
+                                </thead>
+
+                                <tbody ng-repeat="songs in orders.songs">
+                                    <td> {{songs.autor}}</td>
+                                    <td> {{songs.tytul}}</td>
+                                    <td> {{songs.gatunek}}</td>
+                                    <td> {{songs.url}}</td>
+                                </tbody>
+                            </table>
+                    </div>
                 </div> <!--- end row --->
 
                 <div class="row" style="text-align:center;">
