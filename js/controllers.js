@@ -95,3 +95,17 @@ controllers.controller( 'orders' , [ '$scope' , '$http', function( $scope, $http
         };
     
 }]);
+
+
+controllers.controller( 'adduser' , [ '$scope' , '$http', function( $scope, $http ){
+
+    $scope.adduser=function(){
+
+        // ToDo connect with API
+
+        console.log($scope.user);
+    };
+
+
+
+}]);

@@ -19,6 +19,12 @@ app.config([ '$routeProvider', function($routeProvider){
         controller : 'users',
         templateUrl : 'partials/users.html'
     });
+    
+
+    $routeProvider.when('/users/adduser',{
+        controller : 'adduser',
+        templateUrl : 'partials/adduser.html'
+    });
     //---------------_Orders_---------------
     $routeProvider.when('/orders',{
         controller : 'orders',
