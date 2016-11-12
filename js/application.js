@@ -4,31 +4,31 @@ var app = angular.module( 'app' , ['ngRoute', 'controllers'] );
 
 app.config([ '$routeProvider', function($routeProvider){
     
-    $routeProvider.when('/music',{
+    $routeProvider.when('/admin/music',{
         controller : 'songs',
-        templateUrl : 'partials/music.html'
+        templateUrl : 'partials/admin/music.html'
     });
     
-    $routeProvider.when('/music/addmusic',{
+    $routeProvider.when('/music/admin/addmusic',{
         controller : 'addmusic',
-        templateUrl : 'partials/addmusic.html'
+        templateUrl : 'partials/admin/addmusic.html'
     });
     
     //---------------_User_----------------
-    $routeProvider.when('/users',{
+    $routeProvider.when('/admin/users',{
         controller : 'users',
-        templateUrl : 'partials/users.html'
+        templateUrl : 'partials/admin/users.html'
     });
     
 
-    $routeProvider.when('/users/adduser',{
+    $routeProvider.when('/admin/users/adduser',{
         controller : 'adduser',
-        templateUrl : 'partials/adduser.html'
+        templateUrl : 'partials/admin/adduser.html'
     });
     //---------------_Orders_---------------
-    $routeProvider.when('/orders',{
+    $routeProvider.when('/admin/orders',{
         controller : 'orders',
-        templateUrl : 'partials/orders.html'
+        templateUrl : 'partials/admin/orders.html'
     });
         
     //----------_Others_-----------------

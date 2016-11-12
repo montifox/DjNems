@@ -4,8 +4,12 @@ var controllers = angular.module( 'controllers' , ['ngRoute'] );
 
 controllers.controller( 'navigation' , [ '$scope' , '$location', function( $scope, $location ){
 	
-    
-	//Not very important 
+    $scope.navigation =function(){
+     if(/^\/admin/.test($location.path()))
+         return 'partials/admin/navigation.html';
+     else     
+         return 'partials/site/navigation.html';
+    }
 
 }]);
 
