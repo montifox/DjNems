@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module( 'app' , ['ngRoute', 'controllersAdmin','controllersNavigation','controllersSite'] );
+var app = angular.module( 'app' , ['ngRoute','angular-storage','services','controllersAdmin','controllersNavigation','controllersSite'] );
 
 app.config([ '$routeProvider', function($routeProvider){
     
@@ -10,7 +10,7 @@ app.config([ '$routeProvider', function($routeProvider){
         templateUrl : 'partials/admin/music.html'
     });
     
-    $routeProvider.when('/music/admin/addmusic',{
+    $routeProvider.when('/admin/music/addmusic',{
         controller : 'addmusic',
         templateUrl : 'partials/admin/addmusic.html'
     });
