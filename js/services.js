@@ -3,14 +3,34 @@
 var services = angular.module( 'services' , ['ngRoute'] );
 
 
-services.factory('cart',[ 'store' , function(store){
-   
-    var cart =[];
+services.factory('cartSrv',[ 'store' , function(store){
     
-    cart.show = function(){
+    
+    if (store.get('cart'))
+        var cartSrv=store.get('cartSrv');
+    else
+        var cartSrv =[];
+    
+    cartSrv.show = function(){
         
-        console.log('zawartosc');
+        return cartSrv;
     };
     
-    return cart;
+    cartSrv.addToCart = function(songs){
+        
+        cartSrv.push(songs);
+        
+        console.log(cartSrv);
+        store.set('cartSrv', cartSrv);
+        
+        
+    };
+    
+    cartSrv.emptyCart= function() {
+        
+        store.remove('cartSrv');  
+        cartSrv.length=0;
+    };    
+    
+    return cartSrv;
 }])

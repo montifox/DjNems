@@ -37,6 +37,12 @@ app.config([ '$routeProvider', function($routeProvider){
         controller : 'showSongs',
         templateUrl : 'partials/site/music.html'
     });
+    
+    //--------------_Site__Cart_--------------
+    $routeProvider.when('/cart',{
+        controller : 'cartCtrl',
+        templateUrl : 'partials/site/cart.html'
+    });
 
         
     //----------_Others_-----------------

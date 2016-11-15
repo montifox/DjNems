@@ -2,7 +2,7 @@
 
 var controllersAdmin = angular.module( 'controllersAdmin' , ['ngRoute'] );
 
-controllersAdmin.controller( 'songs' , [ '$scope' , '$http' ,'cart', function( $scope, $http, cart ){
+controllersAdmin.controller( 'songs' , [ '$scope' , '$http' , function( $scope, $http ){
 
     $http.get('model/music_library.json').
     success(function(data){
@@ -20,7 +20,7 @@ controllersAdmin.controller( 'songs' , [ '$scope' , '$http' ,'cart', function( $
 
     };
 
-    cart.show();
+
     
 }]);
 

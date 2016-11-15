@@ -5,7 +5,7 @@
             <input type="text" class="form-control" placeholder="szukaj..." ng-model="serch"> 
         </div> <!--- END COLL xs 6 -->
         <div class="col-sm-6 text-right">
-            
+            <h3>Wybierz muzykę na swoja imprezę!</h3>
         </div> <!--- END COLL xs 6 -->
     </div> <!-- end ROW -->
     <br>
@@ -34,7 +34,7 @@
                                 <td>{{songs.autor }}    </td>
                                 <td>{{songs.tytul}}</td>
                                 <td>{{songs.gatunek}}</td>
-                                <td><button class="btn btn-success">
+                                <td><button ng-click="addToCart(songs)" class="btn btn-success">
                                     <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  Dodaj
                                     </button>
                                 </td>
