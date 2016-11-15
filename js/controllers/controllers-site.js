@@ -30,4 +30,8 @@ controllersSite.controller( 'cartCtrl' , [ '$scope' , '$http','cartSrv', functio
         cartSrv.emptyCart();
     };
 
+    $scope.removeItem = function(item , $index) {
+        $scope.cart.splice($index,1);
+        cartSrv.removeItem(item);
+    }
 }]);

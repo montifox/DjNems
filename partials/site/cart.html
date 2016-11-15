@@ -33,6 +33,12 @@
                                             <td>{{cart.autor }}    </td>
                                             <td>{{cart.tytul}}</td>
                                             <td>{{cart.gatunek}}</td>
+                                            <td>
+                                                <button ng-click="removeItem(item ,$index)" class="btn btn-danger">
+                                                    <span class="glyphicon glyphicon-trash"></span>
+                                                </button>
+                                                
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>

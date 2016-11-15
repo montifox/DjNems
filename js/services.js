@@ -30,6 +30,11 @@ services.factory('cartSrv',[ 'store' , function(store){
         
         store.remove('cartSrv');  
         cartSrv.length=0;
+    };  
+    
+    cartSrv.removeItem= function( item ) {
+        
+        store.remove('cart');  
     };    
     
     return cartSrv;
