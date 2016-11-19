@@ -1,51 +1,9 @@
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" placeholder="szukaj..." ng-model="serch"> 
-                    </div> <!--- END COLL xs 6 -->
-                    <div class="col-sm-6 text-right">
-                        <h3>Wybrane przez ciebie!</h3>
-                    </div> <!--- END COLL xs 6 -->
-                </div> <!-- end ROW -->
-                <br>
-                <!--- wyswietlanie produktow OSOM -->
-
-                <div class="row">
-                    <div class="col-sm-12 center-block">
-                        <div ng-controller="songs">   
-                            <div class="table-responsive">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th></th>
-                                            <th>Autor</th>
-                                            <th>Tytuł</th>
-                                            <th>Gatunek</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr ng-repeat="cart in cart | filter: serch">
-                                            <td>
-                                                <button id="{{cart.url}}" class="btn btn-default">
-                                                    <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
-                                                </button>
-                                            </td>
-                                            <td>{{cart.autor }}    </td>
-                                            <td>{{cart.tytul}}</td>
-                                            <td>{{cart.gatunek}}</td>
-                                            <td>
-                                                <button ng-click="removeItem(item ,$index)" class="btn btn-danger">
-                                                    <span class="glyphicon glyphicon-trash"></span>
-                                                </button>
-                                                
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <button ng-click="emptyCart()" class="btn btn-danger"> Wyczyść playliste</button> 
-                    </div>
+                    <h1>Koszyk</h1>
+                    {{cart}}
+                    
+                    <button ng-click="emptyCart()" class="btn btn-danger"> Wyczyść playliste</
                 </div>
             </div>
 

@@ -2,7 +2,7 @@
 
 var controllersNavigation = angular.module( 'controllersNavigation' , ['ngRoute'] );
 
-controllersNavigation.controller( 'navigation' , [ '$scope' , '$location', function( $scope, $location ){
+controllersNavigation.controller( 'navigation' , [ '$scope' , '$location','cartSrv', function( $scope, $location, cartSrv  ){
 	
     $scope.navigation =function(){
      if(/^\/admin/.test($location.path()))
@@ -11,7 +11,6 @@ controllersNavigation.controller( 'navigation' , [ '$scope' , '$location', funct
          return 'partials/site/navigation.html';
     }
 
-    
     
 }]);
 

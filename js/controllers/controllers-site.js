@@ -2,7 +2,7 @@
 
 var controllersSite = angular.module( 'controllersSite' , ['ngRoute'] );
 
-controllersSite.controller( 'showSongs' , [ '$scope' , '$http','cartSrv', function( $scope, $http,cartSrv ){
+controllersSite.controller( 'showSongs' , [ '$scope' , '$http', "cartSrv", function( $scope, $http, cartSrv ){
 
     $http.get('model/music_library.json').
     success(function(data){
@@ -12,26 +12,24 @@ controllersSite.controller( 'showSongs' , [ '$scope' , '$http','cartSrv', functi
     });
     
    
-
-    
     $scope.addToCart= function(songs){
-        cartSrv.addToCart(songs);
+        cartSrv.add(songs);
+        
     };
 
 
 }]);
 
-controllersSite.controller( 'cartCtrl' , [ '$scope' , '$http','cartSrv', function( $scope, $http, cartSrv ){
+controllersSite.controller( 'cartCtrl' , [ '$scope' , '$http', 'cartSrv', function( $scope, $http, cartSrv ){
 
-    $scope.cart =cartSrv.show();
+    $scope.cart=cartSrv.show();
     
-    $scope.emptyCart= function(){
-      
-        cartSrv.emptyCart();
-    };
-
-    $scope.removeItem = function(item , $index) {
-        $scope.cart.splice($index,1);
-        cartSrv.removeItem(item);
+    $scope.emptyCart=function(){
+        cartSrv.empty();
     }
+
+
 }]);
+
+
+

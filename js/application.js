@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module( 'app' , ['ngRoute','angular-storage','services','controllersAdmin','controllersNavigation','controllersSite'] );
+var app = angular.module( 'app' , ['ngRoute','angular-storage','myServices','controllersAdmin','controllersNavigation','controllersSite'] );
 
 app.config([ '$routeProvider', function($routeProvider){
     
@@ -43,6 +43,8 @@ app.config([ '$routeProvider', function($routeProvider){
         controller : 'cartCtrl',
         templateUrl : 'partials/site/cart.html'
     });
+     
+
 
         
     //----------_Others_-----------------

@@ -21,7 +21,6 @@ controllersAdmin.controller( 'songs' , [ '$scope' , '$http' , function( $scope, 
     };
 
 
-    
 }]);
 
 
