@@ -27,7 +27,7 @@ controllersSite.controller( 'cartCtrl' , [ '$scope' , '$http', 'cartSrv', functi
     $scope.emptyCart=function(){
         cartSrv.empty();
     }
-
+    
 
 }]);
 
