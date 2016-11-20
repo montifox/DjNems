@@ -1,0 +1,25 @@
+<form ng-submit="formSubmit()">
+   <div class="container">
+    <div class="row">
+        <div class="col-sm-6 center-block">
+           
+           <div ng-if="errors.login" class="alert alert-danger">Błędne hasło lub email</div>
+           
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2 class="panel-title">Logowanie</h2>
+                </div>
+                
+                <div class="panel-body">
+                    <label>Email</label>
+                    <input type="text" class="form-control" ng-model="input.name" placeholder="Podaj adres email">
+                    <label>Haslo</label>
+                    <input type="password" class="form-control" ng-model="input.password" placeholder="Podaj swoje hasło">
+                    <br>
+                    <button class="btn btn-primary btn-block">Zaloguj się</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</form>

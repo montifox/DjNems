@@ -68,3 +68,25 @@ controllersSite.controller( 'cartCtrl' , [ '$scope' , '$http', 'cartSrv', functi
 
 
 
+
+controllersSite.controller( 'siteOrders' , [ '$scope' , '$http', function( $scope, $http ){
+
+    $http.get('model/orders.json').
+    success(function(data){
+        $scope.orders=data;                   
+    }).error(function(){
+        console.log('error jsons');                   
+    });
+
+}]);
+
+
+controllersSite.controller( 'login' , [ '$scope' , '$http', function( $scope, $http ){
+
+    //ToDo: pobrac dane z formularza i dodac do Api
+    
+    $scope.formSubmit=function(){
+        
+        console.log($scope.input);
+    };
+}]);

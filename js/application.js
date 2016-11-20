@@ -10,6 +10,7 @@ app.config([ '$routeProvider', function($routeProvider){
         templateUrl : 'partials/admin/music.html'
     });
     
+    //--------------_Admin_ADD_Music_--------------
     $routeProvider.when('/admin/music/addmusic',{
         controller : 'addmusic',
         templateUrl : 'partials/admin/addmusic.html'
@@ -21,7 +22,7 @@ app.config([ '$routeProvider', function($routeProvider){
         templateUrl : 'partials/admin/users.html'
     });
     
-
+    //--------------_Admin_ADD_Users_--------------
     $routeProvider.when('/admin/users/adduser',{
         controller : 'adduser',
         templateUrl : 'partials/admin/adduser.html'
@@ -44,9 +45,28 @@ app.config([ '$routeProvider', function($routeProvider){
         templateUrl : 'partials/site/cart.html'
     });
      
-
+     
+    //---------------_Site_Orders_---------------
+    $routeProvider.when('/orders',{
+        controller : 'siteOrders',
+        templateUrl : 'partials/site/orders.html'
+    });
 
         
+
+    //---------------Login---------------
+    $routeProvider.when('/login',{
+        controller : 'login',
+        templateUrl : 'partials/site/login.html'
+    });
+    //---------------Register---------------
+    $routeProvider.when('/register',{
+        controller : 'register',
+        templateUrl : 'partials/site/register.html'
+    });
+    
+    
+    
     //----------_Others_-----------------
     $routeProvider.otherwise({
         redirectTo: '/home'
