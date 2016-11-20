@@ -1,5 +1,17 @@
-<div class="container">
+<form id="paypalForm" ng-submit="setOrder($event)" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+   
+
+<div ng-if="!cart.length && alert.type != 'success'" class="container">
+    <div class="alert alert-info">
+        <h3 style="text-align:center;">Playlista jest pusta jeszcze, nic nie dodaleś.</h3>
+    </div>
+</div>
+
+<div ng-if="cart.length && alert.type != 'success'" class="container">
     <div class="row">
+        
+        
+        
         <div class="col-sm-6">
             <input type="text" class="form-control" placeholder="szukaj..." ng-model="serch">
         </div>
@@ -15,6 +27,9 @@
 
     <div class="row">
         <div class="col-sm-12 center-block">
+
+
+
             <div ng-controller="songs">
                 <div class="table-responsive">
                     <table class="table table-hover">
@@ -33,7 +48,7 @@
                                         <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
                                     </button>
                                 </td>
-                                <td>{{cart.autor }} </td>
+                                <td>{{cart.autor}} </td>
                                 <td>{{cart.tytul}}</td>
                                 <td>{{cart.gatunek}}</td>
                                 <td>
@@ -43,11 +58,42 @@
 
                                 </td>
                             </tr>
+
+                            <tr>
+                                <td colspan="3"></td>
+                                <td>
+                                    <h2>Do zapłaty: {{total() | number:2 }} PLN</h2> </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
+        
+
+
+            <input type="hidden" name="cmd" value="_cart">
+            <input type="hidden" name="upload" value="1">
+            <input type="hidden" name="business" value="chojnackimateusz95@wp.pl">
+            
+            <div ng-repeat="cart in cart">
+                <input type="hidden" name="item_name_{{$index+1}}" value="{{cart.autor}}">
+            <input type="hidden" name="amount_{{$index+1}}" value="5">
+            </div> 
+            
+            <br>
+            <button type="submit" class="btn btn-success">Zamow i Zapłać!</button>
+            <button type="submit" ng-click="setOrder()" class="btn btn-success">Zamow i Zapłać!</button>
             <button ng-click="emptyCart()" class="btn btn-danger"> Wyczyść playliste</button>
+            
+            
+
         </div>
     </div>
 </div>
+<div class="container">
+<br>
+<div ng-if="alert" class="col-xs-12 alert alert-{{alert.type}}">
+    <p style="text-align:center;">{{alert.msg}}</p>
+</div>
+</div>
+</form>

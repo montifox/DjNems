@@ -28,7 +28,42 @@ controllersSite.controller( 'cartCtrl' , [ '$scope' , '$http', 'cartSrv', functi
         cartSrv.empty();
     }
     
+    $scope.total=function(){
+        var total=0;
+        angular.forEach($scope.cart, function(item){
+            total+=5;
+        });
+        
+        return total;
+    }
+    
 
+    $scope.removeItem=function($index){
+        $scope.cart.splice($index, 1); // $index, ile elementow 
+    }
+
+    $scope.setOrder= function($event){
+        
+        //ToDo  sprawdz czy uzytkownik jest zalogowany
+        //ToDo  zapisz zamowienie w bazie 
+        var loggedIn=true;
+        if(!loggedIn){
+            $event.preventDefault(); 
+            $scope.alert = {type: 'warning', msg: 'Błąd, musisz być zalogowany aby zlożyć zamowienie.'};
+            return false;
+        }
+        
+        
+        $scope.alert = {type: 'success', msg: 'Zamowienie złożone nie odświerzaj strony, trwa przekierowywanie do płatności '};
+        console.log($scope.total());
+        console.log($scope.cart);
+        cartSrv.empty();
+        
+        $(' #paypalForm').submit();
+        
+        $event.preventDefault();
+    }
+    
 }]);
 
 
