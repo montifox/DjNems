@@ -85,7 +85,29 @@ controllersSite.controller( 'login' , [ '$scope' , '$http', function( $scope, $h
 
     //ToDo: pobrac dane z formularza i dodac do Api
     
+    
     $scope.formSubmit=function(){
+        
+        $scope.errors={};
+        $scope.errors.login=true;
+        
+        console.log($scope.input);
+    };
+}]);
+
+controllersSite.controller( 'register' , [ '$scope' , '$http', function( $scope, $http ){
+
+    //ToDo: pobrac dane z formularza i dodac do Api
+    
+    
+    $scope.formSubmit=function(){
+        $scope.errors={};
+        $scope.errors.login=false;
+        
+    
+       // $scope.errors.name="chujowe imie";
+    
+        $scope.submit = true;
         
         console.log($scope.input);
     };
