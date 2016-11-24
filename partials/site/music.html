@@ -1,0 +1,49 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <input type="text" class="form-control" placeholder="szukaj..." ng-model="serch"> 
+        </div> <!--- END COLL xs 6 -->
+        <div class="col-sm-6 text-right">
+            <h3>Wybierz muzykę na swoja imprezę!</h3>
+        </div> <!--- END COLL xs 6 -->
+    </div> <!-- end ROW -->
+    <br>
+    <!--- wyswietlanie produktow OSOM -->
+
+    <div class="row">
+        <div class="col-sm-12 center-block">
+            <div ng-controller="songs">   
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Autor</th>
+                                <th>Tytuł</th>
+                                <th>Gatunek</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="songs in songs | filter: serch">
+                                <td>
+                                    <button id="{{songs.url}}" class="btn btn-default">
+                                        <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+                                    </button>
+                                </td>
+                                <td>{{songs.autor }}    </td>
+                                <td>{{songs.tytul}}</td>
+                                <td>{{songs.gatunek}}</td>
+                                <td><button ng-click="addToCart(songs)" class="btn btn-success">
+                                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  Dodaj
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
