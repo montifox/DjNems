@@ -4,7 +4,7 @@ var controllersAdmin = angular.module( 'controllersAdmin' , ['ngRoute'] );
 
 controllersAdmin.controller( 'songs' , [ '$scope' , '$http' , function( $scope, $http ){
 
-    $http.get('model/music_library.json').
+    $http.get('api/admin/songs/get').
     success(function(data){
         $scope.songs=data;                   
     }).error(function(){
@@ -12,12 +12,20 @@ controllersAdmin.controller( 'songs' , [ '$scope' , '$http' , function( $scope, 
     });
 
 
-    $scope.delete = function(songs,$index)
+    $scope.delete = function(song,$index)
     {
-
-        //ToDo conect with API
+        
+       // if(!confirm('czy napewno chcesz usunac?'));
+            
+        
         $scope.songs.splice($index, 1); // $index, ile elementow 
 
+        $http.post('api/admin/songs/delete/',{
+            song : song
+        }).
+        error(function(){
+            console.log('error jsons');                   
+        });
     };
 
 
@@ -27,14 +35,19 @@ controllersAdmin.controller( 'songs' , [ '$scope' , '$http' , function( $scope, 
 
 controllersAdmin.controller( 'addmusic' , [ '$scope' , '$http', function( $scope, $http ){
 
-    $scope.addmusic=function(){
+    $scope.addmusic=function(song){
+        //console.log(song);
+        $http.post('api/admin/songs/create',{    
+            song : song
+        }).
+        success(function(){
+            console.log('success komunikacja z api dziala');                   
+            $scope.success=true;                   
+        }).error(function(){ 
+            console.log('error komunikacji  z api');                   
+        });
 
-        // ToDo connect with API
-
-        console.log($scope.song);
     };
-
-
 
 }]);
 
@@ -43,7 +56,7 @@ controllersAdmin.controller( 'addmusic' , [ '$scope' , '$http', function( $scope
 
 controllersAdmin.controller( 'users' , [ '$scope' , '$http', function( $scope, $http ){
 
-    $http.get('model/users.json').
+    $http.get('api/admin/songs/get').
     success(function(data){
         $scope.users=data;                   
     }).error(function(){
