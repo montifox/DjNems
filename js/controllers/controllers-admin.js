@@ -56,23 +56,49 @@ controllersAdmin.controller( 'addmusic' , [ '$scope' , '$http', function( $scope
 
 controllersAdmin.controller( 'users' , [ '$scope' , '$http', function( $scope, $http ){
 
-    $http.get('api/admin/songs/get').
-    success(function(data){
-        $scope.users=data;                   
-    }).error(function(){
-        console.log('error jsons');                   
-    });
+
+        $http.get('api/admin/users/get').
+        success(function(data){
+            $scope.users=data;                   
+        }).error(function(){
+            console.log('error jsons');                   
+        });
 
 
-    $scope.delete = function(users,$index)
-    {
+        $scope.delete = function(user,$index)
+        {
 
-        //ToDo conect with API
-        $scope.users.splice($index, 1); // $index, ile elementow 
+            // if(!confirm('czy napewno chcesz usunac?'));
 
-    };
+
+            $scope.users.splice($index, 1); // $index, ile elementow 
+
+            $http.post('api/admin/users/delete/',{
+                user : user
+            }).
+            error(function(){
+                console.log('error jsons');                   
+            });
+        };
+
 }]);
+    
+    controllersAdmin.controller( 'adduser' , [ '$scope' , '$http', function( $scope, $http ){
 
+        $scope.adduser=function(user){
+            console.log(user);
+            $http.post('api/admin/users/create',{    
+                user : user
+            }).
+            success(function(){
+                console.log('success komunikacja z api dziala');                   
+                $scope.success=true;                   
+            }).error(function(){ 
+                console.log('error komunikacji  z api');                   
+            });
+
+        };    
+    }]);
 controllersAdmin.controller( 'orders' , [ '$scope' , '$http', function( $scope, $http ){
 
     $http.get('model/orders.json').
@@ -100,15 +126,6 @@ controllersAdmin.controller( 'orders' , [ '$scope' , '$http', function( $scope, 
 }]);
 
 
-controllersAdmin.controller( 'adduser' , [ '$scope' , '$http', function( $scope, $http ){
-
-    $scope.adduser=function(){
-
-        // ToDo connect with API
-
-        console.log($scope.user);
-    };
 
 
 
-}]);
