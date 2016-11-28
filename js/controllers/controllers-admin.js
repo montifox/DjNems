@@ -85,6 +85,9 @@ controllersAdmin.controller( 'users' , [ '$scope' , '$http', function( $scope, $
     
     controllersAdmin.controller( 'adduser' , [ '$scope' , '$http', function( $scope, $http ){
 
+        $scope.user={};
+        $scope.user.role='user';
+        
         $scope.adduser=function(user){
             console.log(user);
             $http.post('api/admin/users/create',{    
