@@ -34,8 +34,12 @@
                                 <td>{{songs.autor }}    </td>
                                 <td>{{songs.tytul}}</td>
                                 <td>{{songs.gatunek}}</td>
-                                <td><button ng-click="addToCart(songs)" class="btn btn-success">
-                                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  Dodaj
+                                <td>
+                                    <button ng-click="addToCart(songs)" class="btn btn-success" ng-if="!success">
+                                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  Dodaj
+                                   </button>
+                                    <button type="button" class="btn btn-danger" ng-if="success" disabled>
+                                        Dodano
                                     </button>
                                 </td>
                             </tr>

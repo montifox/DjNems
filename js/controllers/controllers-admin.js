@@ -90,7 +90,7 @@ controllersAdmin.controller( 'users' , [ '$scope' , '$http', function( $scope, $
         
         $scope.adduser=function(user){
             console.log(user);
-            $http.post('api/admin/users/create',{    
+            $http.post('api/site/user/create',{    
                 user : user
             }).
             success(function(){

@@ -4,15 +4,16 @@ var controllersSite = angular.module( 'controllersSite' , ['ngRoute'] );
 
 controllersSite.controller( 'showSongs' , [ '$scope' , '$http', "cartSrv", function( $scope, $http, cartSrv ){
 
-    $http.get('model/music_library.json').
+    $http.get('api/site/songs/get').
     success(function(data){
         $scope.showSongs=data;                   
     }).error(function(){
-        console.log('error jsons');                   
+        console.log('błąd pączenia z api!');                   
     });
     
    
     $scope.addToCart= function(songs){
+       // $scope.songs.success=true;       TO DO HERE
         cartSrv.add(songs);
         
     };
@@ -75,7 +76,7 @@ controllersSite.controller( 'siteOrders' , [ '$scope' , '$http', function( $scop
     success(function(data){
         $scope.orders=data;                   
     }).error(function(){
-        console.log('error jsons');                   
+        console.log('błąd pączenia z api!');                   
     });
 
 }]);
@@ -97,18 +98,20 @@ controllersSite.controller( 'login' , [ '$scope' , '$http', function( $scope, $h
 
 controllersSite.controller( 'register' , [ '$scope' , '$http', function( $scope, $http ){
 
-    //ToDo: pobrac dane z formularza i dodac do Api
-    
-    
-    $scope.formSubmit=function(){
-        $scope.errors={};
-        $scope.errors.login=false;
-        
-    
-       // $scope.errors.name="chujowe imie";
-    
-        $scope.submit = true;
-        
-        console.log($scope.input);
-    };
+    $scope.user={};
+    $scope.user.role='user';
+
+    $scope.formSubmit=function(user){
+        console.log("succes");
+        $http.post('api/site/user/create',{    
+            user : user
+        }).
+        success(function(){
+            console.log('success komunikacja z api dziala');                   
+            $scope.success=true;                   
+        }).error(function(){ 
+            console.log('error komunikacji  z api');                   
+        });
+
+    };  
 }]);
