@@ -32,6 +32,11 @@ app.config([ '$routeProvider', function($routeProvider){
         controller : 'orders',
         templateUrl : 'partials/admin/orders.html'
     });
+    //---------------_Admin_Msg_---------------
+    $routeProvider.when('/admin/msg',{
+        controller : 'msg',
+        templateUrl : 'partials/admin/msg.html'
+    });
     
     //--------------_Site__Music_--------------
     $routeProvider.when('/music',{
@@ -50,6 +55,11 @@ app.config([ '$routeProvider', function($routeProvider){
     $routeProvider.when('/orders',{
         controller : 'siteOrders',
         templateUrl : 'partials/site/orders.html'
+    });
+    //---------------_Site_SendMSG_---------------
+    $routeProvider.when('/sendMsg',{
+        controller : 'sendMsg',
+        templateUrl : 'partials/site/sendMsg.html'
     });
 
         

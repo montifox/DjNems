@@ -114,4 +114,24 @@ controllersSite.controller( 'register' , [ '$scope' , '$http', function( $scope,
         });
 
     };  
+       
+}]);
+
+controllersSite.controller( 'sendMsg' , [ '$scope' , '$http', function( $scope, $http ){
+
+    $scope.sendMsg=function(message){
+        console.log(message);
+        
+        $http.post('api/site/msg/create',{     
+            message : message
+        }).
+        success(function(){
+            console.log('success komunikacja z api dziala');                   
+            $scope.success=true;                   
+        }).error(function(){ 
+            console.log('error komunikacji  z api');                   
+        });
+        
+    };
+
 }]);

@@ -131,4 +131,28 @@ controllersAdmin.controller( 'orders' , [ '$scope' , '$http', function( $scope, 
 
 
 
+controllersAdmin.controller( 'msg' , [ '$scope' , '$http' , function( $scope, $http ){
 
+    $http.get('api/admin/msg/get').
+    success(function(data){
+        $scope.msg=data;                   
+    }).error(function(){
+        console.log('error jsons');                   
+    });
+
+
+    $scope.delete = function(msg,$index)
+    {
+        // if(!confirm('czy napewno chcesz usunac?'));
+        $scope.msg.splice($index, 1); // $index, ile elementow 
+
+        $http.post('api/admin/msg/delete/',{
+            msg : msg
+        }).
+        error(function(){
+            console.log('error jsons');                   
+        });
+    };
+
+
+}]);

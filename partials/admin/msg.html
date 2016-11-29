@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 center-block">
+            <div class="alert alert-info" ng-repeat="msg in msg | filter: serch">
+                <h3>{{msg.nick}}</h3>
+                <h2>{{msg.tresc}}</h2>
+                <button ng-click="delete(msg,$index)" class="btn btn-danger">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
