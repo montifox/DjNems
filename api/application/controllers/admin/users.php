@@ -10,18 +10,24 @@ class Users extends CI_Controller {
         $_POST =json_decode($post, true);
 
         $this->load->model('admin/users_model');
+
     }
 
 
-    public function get(){
+    public function get( ){
 
         $output= $this->users_model->get();
         echo json_encode($output);
     }
 
-    public function create($user){
+    public function create(){
         $user = $this -> input -> post( 'user' );
         unset($user['passconf']);
+        
+        
+        $user['password']=crypt($user['password'],config_item('encryption_key'));
+        
+        
         $this->users_model->create( $user );
     }
 

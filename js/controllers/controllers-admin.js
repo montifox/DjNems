@@ -89,11 +89,15 @@ controllersAdmin.controller( 'users' , [ '$scope' , '$http', function( $scope, $
         $scope.user.role='user';
         
         $scope.adduser=function(user){
-            console.log(user);
-            $http.post('api/site/user/create',{    
-                user : user
-            }).
-            success(function(){
+           console.log(user);
+            $http.post('api/admin/users/create',{ 
+                user : user,   
+                name: user.names,
+                email : user.email,
+                password : user.password,
+                passconf: user.passconf        
+            }).success(function( errors ){
+                $scope.errors = errors;
                 console.log('success komunikacja z api dziala');                   
                 $scope.success=true;                   
             }).error(function(){ 

@@ -82,24 +82,38 @@ controllersSite.controller( 'siteOrders' , [ '$scope' , '$http', function( $scop
 }]);
 
 
-controllersSite.controller( 'login' , [ '$scope' , '$http', function( $scope, $http ){
+controllersSite.controller( 'login' , [ '$scope' , '$http' ,'store', function( $scope, $http, store ){
 
-    //ToDo: pobrac dane z formularza i dodac do Api
+    $scope.user={};
     
+    $scope.formSubmit=function( user ){
+        $http.post('api/site/user/login',{  
+            email : user.email,
+            password : user.password
+        }).success(function( data ){
+            console.log(data);
+            $scope.submit=true;        
+            $scope.error=data.error;
+            
+                    
+            
+            if(data.check == true){
+                window.location.href ='#/admin/users';
+            }
+            
+            console.log('success komunikacja z api dziala');                   
+        }).error(function(){ 
+            console.log('error komunikacji  z api');                   
+        });
+        
+    }; 
     
-    $scope.formSubmit=function(){
-        
-        $scope.errors={};
-        $scope.errors.login=true;
-        
-        console.log($scope.input);
-    };
 }]);
 
 controllersSite.controller( 'register' , [ '$scope' , '$http', function( $scope, $http ){
 
-    $scope.user={};
-    $scope.user.role='user';
+  //  $scope.user={};
+  //  $scope.user.role='user';
 
     $scope.formSubmit=function(user){
         console.log("succes");

@@ -1,23 +1,24 @@
-<form ng-submit="formSubmit()">
+<form ng-submit="formSubmit(user)">
    <div class="container">
     <div class="row">
         <div class="col-sm-6 center-block">
-           
-         
            
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h2 class="panel-title">Logowanie</h2>
                 </div>
                 
+                
                 <div class="panel-body">
+                    <div ng-if="error" class="alert alert-danger">{{error}}</div>         
+                    
+                        <label>Email</label>
+                        <input type="text" class="form-control" ng-model="user.email" placeholder="Podaj adres email">
                         
-                    <div ng-if="errors.login" class="alert alert-danger">Błędne hasło lub email</div>     
-                           
-                   <label>Email</label>
-                    <input type="text" class="form-control" ng-model="input.email" placeholder="Podaj adres email">
-                    <label>Haslo</label>
-                    <input type="password" class="form-control" ng-model="input.password" placeholder="Podaj swoje hasło">
+                    
+                        <label>Haslo</label>
+                        <input type="password" class="form-control" ng-model="user.password" placeholder="Podaj swoje hasło">
+                    
                     <br>
                     <button class="btn btn-primary btn-block">Zaloguj się</button>
                 </div>
