@@ -70,17 +70,6 @@ controllersSite.controller( 'cartCtrl' , [ '$scope' , '$http', 'cartSrv', functi
 
 
 
-controllersSite.controller( 'siteOrders' , [ '$scope' , '$http', function( $scope, $http ){
-
-    $http.get('model/orders.json').
-    success(function(data){
-        $scope.orders=data;                   
-    }).error(function(){
-        console.log('błąd pączenia z api!');                   
-    });
-
-}]);
-
 
 controllersSite.controller( 'login' , [ '$scope' , '$http' ,'store', function( $scope, $http, store ){
 
@@ -110,26 +99,6 @@ controllersSite.controller( 'login' , [ '$scope' , '$http' ,'store', function( $
     
 }]);
 
-controllersSite.controller( 'register' , [ '$scope' , '$http', function( $scope, $http ){
-
-  //  $scope.user={};
-  //  $scope.user.role='user';
-
-    $scope.formSubmit=function(user){
-        console.log("succes");
-        $http.post('api/site/user/create',{    
-            user : user
-        }).
-        success(function(){
-            console.log('success komunikacja z api dziala');                   
-            $scope.success=true;                   
-        }).error(function(){ 
-            console.log('error komunikacji  z api');                   
-        });
-
-    };  
-       
-}]);
 
 controllersSite.controller( 'sendMsg' , [ '$scope' , '$http', function( $scope, $http ){
 

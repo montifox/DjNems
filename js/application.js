@@ -49,33 +49,19 @@ app.config([ '$routeProvider', function($routeProvider){
         controller : 'cartCtrl',
         templateUrl : 'partials/site/cart.html'
     });
-     
-     
-    //---------------_Site_Orders_---------------
-    $routeProvider.when('/orders',{
-        controller : 'siteOrders',
-        templateUrl : 'partials/site/orders.html'
-    });
+
     //---------------_Site_SendMSG_---------------
     $routeProvider.when('/sendMsg',{
         controller : 'sendMsg',
         templateUrl : 'partials/site/sendMsg.html'
     });
-
-        
+      
 
     //---------------Login---------------
     $routeProvider.when('/login',{
         controller : 'login',
         templateUrl : 'partials/site/login.html'
-    });
-    //---------------Register---------------
-    $routeProvider.when('/register',{
-        controller : 'register',
-        templateUrl : 'partials/site/register.html'
-    });
-    
-    
+    });    
     
     //----------_Others_-----------------
     $routeProvider.otherwise({

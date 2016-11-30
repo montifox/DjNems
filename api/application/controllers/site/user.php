@@ -13,23 +13,6 @@ class User extends CI_Controller {
     }
 
 
-    public function get(){
-
-        $output= $this->User_model->get();
-        echo json_encode($output);
-    }
-
-    public function create($user){
-        $user = $this -> input -> post( 'user' );
-        $user['role']='user';
-        unset($user['passconf']);
-        
-        $user['password']=crypt($user['password'],config_item('encryption_key'));
-        
-        
-        $this->User_model->create( $user );
-    }
-
     public function login(){
         
   
@@ -42,20 +25,12 @@ class User extends CI_Controller {
         
         if(!$login)
         {
-            $output['error']='Bledne haslo lub email';
+            $output['error']='Nie jesteś adminem.';
             $output['check']=FALSE;
         }
         else
         {    
-            /*
-            $token=$this->jwt->encode(array(
-            'userId'=> $login->id,
-            'name'=> $login->name,
-            'email'=> $login->email,
-            'role'=> $login->role
-            ), config_item('encryption_key'));
-            */
-            // $output['token']=$token;
+           
             $output['password']=$password;
             $output['email']=$email;
             $output['check']=TRUE;
