@@ -38,6 +38,11 @@ app.config([ '$routeProvider', function($routeProvider){
         templateUrl : 'partials/admin/msg.html'
     });
     
+    //--------------_Site__Home_--------------
+    $routeProvider.when('/home',{
+        controller : '',
+        templateUrl : 'partials/site/home.html'
+    });
     //--------------_Site__Music_--------------
     $routeProvider.when('/music',{
         controller : 'showSongs',
