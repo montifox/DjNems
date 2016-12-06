@@ -1,0 +1,49 @@
+ 
+<div class="container">
+<div class="row">
+          <div class="col-sm-6">
+                <input type="text" class="form-control" placeholder="szukaj..." ng-model="serch"> 
+          </div> <!--- END COLL xs 6 -->
+          <div class="col-sm-6">
+              <a href="#/users/adduser" class="btn btn-success">Utwórz konto</a>
+          </div>
+      </div> <!-- end ROW -->
+          <br>
+      <!--- wyswietlanie produktow OSOM -->
+
+<div class="row">
+    <div class="col-sm-12">
+      <div ng-controller="users">   
+          <div class="table-responsive">
+                  <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Mail</th>
+                <th>Rola</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="users in users | filter: serch">
+                <td>{{users.names}}</td>
+                <td>{{users.email}}</td>
+                <td>{{users.role}}</td>
+                <td><button ng-click="delete(users,$index)" class="btn btn-danger">
+                      <span class="glyphicon glyphicon-trash"></span>
+                    </button>
+                </td>
+                <td><button class="btn btn-info">
+                     <span class="glyphicon glyphicon-pencil"></span> 
+                    </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+      </div>
+    </div>
+</div>
+</div>
+
+ 
