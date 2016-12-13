@@ -1,0 +1,31 @@
+<form ng-submit="adduser(user)">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 center-block">
+                <form ng-submit="adduser()">
+                    <div class="form-group">
+                        <label>Id:</label>
+                        <input type="text" class="form-control" ng-model="user.names">
+                    </div>
+                    <div class="form-group">
+                        <label>Haslo:</label>
+                        <input type="password" class="form-control" ng-model="user.password">
+                    </div>
+                    <div class="form-group">
+                        <label>Powtorz hasło:</label>
+                        <input type="password" class="form-control" ng-model="user.passconf">
+                    </div>
+                    <div class="form-group">
+                        <label>Email:</label>
+                        <input type="text" class="form-control" ng-model="user.email">
+                    </div>
+                </form>
+                <button type="submit" class="btn btn-success"> Utworz konto</button>
+                <a href="#" class="btn btn-danger">Wroć</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
