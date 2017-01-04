@@ -9,7 +9,12 @@
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+      <link href="css/font-awesome.min.css" rel="stylesheet">
+      <link href="css/main.css" rel="stylesheet">
+      <link href="css/animate.css" rel="stylesheet">	
+      <link href="css/responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -19,23 +24,48 @@
     <![endif]-->
   </head>
   <body ng-app="app">
+
+
 <div ng-controller="navigation" ng-include="navigation()">
    
 </div> <!--- end ng-controller navigation --->
-      
 
-      <div ng-view>
+
+      <div  ng-view>
 
       </div>
+      
+      
+      
+      <footer id="footer">
+          <div class="container">
+              <div class="text-center">
+                  <p> Copyright  &copy;2016 <a target="_blank" href="http://shapebootstrap.net/"> Mateusz </a>Chojnacki <br></p>                
+              </div>
+          </div>
+      </footer>
+      <!--/#footer-->
     <!-- ==================== Java Script ============================ -->
-
+    
+    <!-- JSlocal -->
+      <script type="text/javascript" src="jslocal/jquery.js"></script>
+      <script type="text/javascript" src="jslocal/bootstrap.min.js"></script>
+      <script type="text/javascript" src="jslocal/smoothscroll.js"></script>
+      <script type="text/javascript" src="jslocal/jquery.parallax.js"></script>
+      <script type="text/javascript" src="jslocal/coundown-timer.js"></script>
+      <script type="text/javascript" src="jslocal/jquery.scrollTo.js"></script>
+      <script type="text/javascript" src="jslocal/jquery.nav.js"></script>
+      <script type="text/javascript" src="jslocal/main.js"></script> 
     <!-- Angular -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-route.min.js"></script> <!--- route ---->
+    <script src="https://cdn.rawgit.com/auth0/angular-storage/master/dist/angular-storage.js"></script>  
+      
     <script src="js/application.js"></script>
     <script src="js/controllers/controllers-navigation.js"></script>
     <script src="js/controllers/controllers-admin.js"></script>
     <script src="js//controllers/controllers-site.js"></script>
+    <script src="js/services.js"></script>
     
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

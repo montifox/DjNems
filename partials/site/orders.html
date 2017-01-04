@@ -1,0 +1,41 @@
+<div class=" container">
+    <div ng-controller="orders">    
+        <div class="alert alert-info" ng-repeat="orders in orders | filter: serch">
+            <div class="row">
+                <div class="col-sm-6"><h4>Id: {{orders.name}} </h4></div>
+                <div class="col-sm-6"><h4>Mail: {{orders.email}}</h4></div>
+            </div> <!-- end row --->
+            <div class="row">
+                <h3 style="text-align:center;">Playlista</h3>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <th>Autor</th>
+                            <th>Tytul</th>
+                            <th>Gatunek</th>
+                            <th>Url</th>
+                        </thead>
+
+                        <tbody ng-repeat="songs in orders.songs">
+                            <td> {{songs.autor}}</td>
+                            <td> {{songs.tytul}}</td>
+                            <td> {{songs.gatunek}}</td>
+                            <td> {{songs.url}}</td>
+                        </tbody>
+                    </table>
+                </div>
+            </div> <!--- end row --->
+
+            <div class="row" style="text-align:center;">
+                <h5>Cena: {{orders.total}} zł</h5>
+                <h5>Status:</h5>
+                <button ng-if="orders.status == 0" class="btn btn-warning" disabled> Oczekuje </button>
+                <button ng-if="orders.status == 1" class="btn btn-success" disabled> Zrealizowano </button>
+            </div> <!--- end row --->
+        </div> <!--- allert--->
+    </div> <!-- ng controller--->
+</div>
+
+
+
+

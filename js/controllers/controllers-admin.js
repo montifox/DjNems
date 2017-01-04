@@ -2,9 +2,9 @@
 
 var controllersAdmin = angular.module( 'controllersAdmin' , ['ngRoute'] );
 
-controllersAdmin.controller( 'songs' , [ '$scope' , '$http', function( $scope, $http ){
+controllersAdmin.controller( 'songs' , [ '$scope' , '$http' , function( $scope, $http ){
 
-    $http.get('model/music_library.json').
+    $http.get('api/admin/songs/get').
     success(function(data){
         $scope.songs=data;                   
     }).error(function(){
@@ -12,14 +12,21 @@ controllersAdmin.controller( 'songs' , [ '$scope' , '$http', function( $scope, $
     });
 
 
-    $scope.delete = function(songs,$index)
+    $scope.delete = function(song,$index)
     {
-
-        //ToDo conect with API
+        
+       // if(!confirm('czy napewno chcesz usunac?'));
+            
+        
         $scope.songs.splice($index, 1); // $index, ile elementow 
 
+        $http.post('api/admin/songs/delete/',{
+            song : song
+        }).
+        error(function(){
+            console.log('error jsons');                   
+        });
     };
-
 
 
 }]);
@@ -28,14 +35,19 @@ controllersAdmin.controller( 'songs' , [ '$scope' , '$http', function( $scope, $
 
 controllersAdmin.controller( 'addmusic' , [ '$scope' , '$http', function( $scope, $http ){
 
-    $scope.addmusic=function(){
+    $scope.addmusic=function(song){
+        //console.log(song);
+        $http.post('api/admin/songs/create',{    
+            song : song
+        }).
+        success(function(){
+            console.log('success komunikacja z api dziala');                   
+            $scope.success=true;                   
+        }).error(function(){ 
+            console.log('error komunikacji  z api');                   
+        });
 
-        // ToDo connect with API
-
-        console.log($scope.song);
     };
-
-
 
 }]);
 
@@ -44,23 +56,56 @@ controllersAdmin.controller( 'addmusic' , [ '$scope' , '$http', function( $scope
 
 controllersAdmin.controller( 'users' , [ '$scope' , '$http', function( $scope, $http ){
 
-    $http.get('model/users.json').
-    success(function(data){
-        $scope.users=data;                   
-    }).error(function(){
-        console.log('error jsons');                   
-    });
+
+        $http.get('api/admin/users/get').
+        success(function(data){
+            $scope.users=data;                   
+        }).error(function(){
+            console.log('error jsons');                   
+        });
 
 
-    $scope.delete = function(users,$index)
-    {
+        $scope.delete = function(user,$index)
+        {
 
-        //ToDo conect with API
-        $scope.users.splice($index, 1); // $index, ile elementow 
+            // if(!confirm('czy napewno chcesz usunac?'));
 
-    };
+
+            $scope.users.splice($index, 1); // $index, ile elementow 
+
+            $http.post('api/admin/users/delete/',{
+                user : user
+            }).
+            error(function(){
+                console.log('error jsons');                   
+            });
+        };
+
 }]);
+    
+    controllersAdmin.controller( 'adduser' , [ '$scope' , '$http', function( $scope, $http ){
 
+        $scope.user={};
+        $scope.user.role='user';
+        
+        $scope.adduser=function(user){
+           console.log(user);
+            $http.post('api/admin/users/create',{ 
+                user : user,   
+                name: user.names,
+                email : user.email,
+                password : user.password,
+                passconf: user.passconf        
+            }).success(function( errors ){
+                $scope.errors = errors;
+                console.log('success komunikacja z api dziala');                   
+                $scope.success=true;                   
+            }).error(function(){ 
+                console.log('error komunikacji  z api');                   
+            });
+
+        };    
+    }]);
 controllersAdmin.controller( 'orders' , [ '$scope' , '$http', function( $scope, $http ){
 
     $http.get('model/orders.json').
@@ -88,15 +133,30 @@ controllersAdmin.controller( 'orders' , [ '$scope' , '$http', function( $scope, 
 }]);
 
 
-controllersAdmin.controller( 'adduser' , [ '$scope' , '$http', function( $scope, $http ){
 
-    $scope.adduser=function(){
 
-        // ToDo connect with API
+controllersAdmin.controller( 'msg' , [ '$scope' , '$http' , function( $scope, $http ){
 
-        console.log($scope.user);
+    $http.get('api/admin/msg/get').
+    success(function(data){
+        $scope.msg=data;                   
+    }).error(function(){
+        console.log('error jsons');                   
+    });
+
+
+    $scope.delete = function(msg,$index)
+    {
+        // if(!confirm('czy napewno chcesz usunac?'));
+        $scope.msg.splice($index, 1); // $index, ile elementow 
+
+        $http.post('api/admin/msg/delete/',{
+            msg : msg
+        }).
+        error(function(){
+            console.log('error jsons');                   
+        });
     };
-
 
 
 }]);

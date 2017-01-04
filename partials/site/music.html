@@ -1,11 +1,11 @@
-
+<div class="contact-section">
 <div class="container">
     <div class="row">
-        <div class="col-sm-6">
+        <div style="padding-top:15px;" class="col-sm-6">
             <input type="text" class="form-control" placeholder="szukaj..." ng-model="serch"> 
         </div> <!--- END COLL xs 6 -->
         <div class="col-sm-6 text-right">
-            
+            <h3 style="color:#00008b">Wybierz muzykę na swoja imprezę!</h3>
         </div> <!--- END COLL xs 6 -->
     </div> <!-- end ROW -->
     <br>
@@ -34,8 +34,12 @@
                                 <td>{{songs.autor }}    </td>
                                 <td>{{songs.tytul}}</td>
                                 <td>{{songs.gatunek}}</td>
-                                <td><button class="btn btn-success">
-                                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  Dodaj
+                                <td>
+                                    <button ng-click="addToCart(songs)" class="btn btn-success" ng-if="!success">
+                                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  Dodaj
+                                   </button>
+                                    <button type="button" class="btn btn-danger" ng-if="success" disabled>
+                                        Dodano
                                     </button>
                                 </td>
                             </tr>
@@ -46,4 +50,4 @@
         </div>
     </div>
 </div>
-
+</div>

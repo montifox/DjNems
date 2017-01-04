@@ -1,7 +1,10 @@
 <form ng-submit="adduser(user)">
-    <div class="container">
+    <section id="sponsor">
+    <div class="container">    
         <div class="row">
-            <div class="col-sm-4 center-block">
+            <div style="padding-top:15px;" class="col-sm-4 center-block">
+
+                {{errors}}
                 <form ng-submit="adduser()">
                     <div class="form-group">
                         <label>Id:</label>
@@ -19,13 +22,21 @@
                         <label>Email:</label>
                         <input type="text" class="form-control" ng-model="user.email">
                     </div>
+                    <div class="form-group">
+                        <label>role:</label>
+                        <select class="form-control" ng-model="user.role">
+                            <option value="user">user</option>
+                            <option value="admin">admin</option>
+                        </select>
+                    </div>
                 </form>
-                <button type="submit" class="btn btn-success"> Utworz konto</button>
-                <a href="#" class="btn btn-danger">Wroć</a>
+                <button type="submit" class="btn btn-success" ng-if="!success">Dodaj do bazy Usera</button>
+                <button type="button" class="btn btn-danger" ng-if="success" disabled>Dodano  pomyslnie</button>
+                <a href="#/admin/users" class="btn btn-danger">Wroć</a>
             </div>
         </div>
     </div>
+    </section>
 </form>
-
 
 

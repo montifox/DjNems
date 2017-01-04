@@ -1,0 +1,33 @@
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                   
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+
+<section id="about">
+    <div class="guitar2">				
+        <img class="img-responsive" src="images/guitar2.jpg" alt="guitar">
+    </div>
+    <div class="about-content">	
+        <form ng-submit="sendMsg(message)">				
+            <div class="form-group">
+                <label>Imie:</label>
+                <input type="text" class="form-control" ng-model="message.nick" placeholder="Jak na ciebie wołają?">
+            </div>
+            <div class="form-group">
+                <label>Treść:</label>
+                <input type="text" class="form-control" ng-model="message.tresc" placeholder="Wpisz pozdrowienia, propozycje muzyki lub co tam chcesz">
+            </div>
+            <button type="submit" class="btn btn-success" ng-if="!success">Wyslij</button>
+            <button type="button" class="btn btn-danger" ng-if="success" disabled>Wyslano pomyslnie</button>
+            <a href="#/music" class="btn btn-danger">Wroć</a>
+        </form>
+    </div>
+</section><!--/#about-->
